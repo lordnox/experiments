@@ -1,0 +1,101 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Justify</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css({.tmp,app}) styles/main.css -->
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+  <body ng-app="11App">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container-fluid">
+      <div class="row" id="page" ng-view=""></div>
+    </div>
+
+    <script src="vendor/jquery.js"></script>
+    <script src="vendor/angular.js"></script>
+
+    <script type="text/ng-template" id="views/main.html">
+
+      <textarea ng-model="text"></textarea>
+      <input type="number" ng-model="config.max" />
+
+      <table class="justify">
+        <thead>
+          <th>#</th>
+          <th>Badness</th>
+          <th><b ng-repeat="x in makeArray(config.max)">{{$index + 1}}</b></th>
+        </thead>
+        <tr ng-repeat="line in lines">
+          <td>
+            {{$index + 1}}.
+          </td>
+          <td>
+            {{badness(line)}}
+          </td>
+          <td>
+            <b ng-repeat="letter in line | split | nosp">{{letter}}</b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            
+          </td>
+          <td>
+            Antwort
+          </td>
+          <td>
+            <b ng-repeat="letter in result | stringify">{{letter}}</b>
+          </td>
+        </tr>
+      </table>
+    </script>
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="vendor/bootstrap-affix.js"></script>
+        <script src="vendor/bootstrap-alert.js"></script>
+        <script src="vendor/bootstrap-dropdown.js"></script>
+        <script src="vendor/bootstrap-tooltip.js"></script>
+        <script src="vendor/bootstrap-modal.js"></script>
+        <script src="vendor/bootstrap-transition.js"></script>
+        <script src="vendor/bootstrap-button.js"></script>
+        <script src="vendor/bootstrap-popover.js"></script>
+        <script src="vendor/bootstrap-typeahead.js"></script>
+        <script src="vendor/bootstrap-carousel.js"></script>
+        <script src="vendor/bootstrap-scrollspy.js"></script>
+        <script src="vendor/bootstrap-collapse.js"></script>
+        <script src="vendor/bootstrap-tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/modules.js -->
+        <script src="vendor/angular-resource.js"></script>
+        <script src="vendor/angular-cookies.js"></script>
+        <script src="vendor/angular-sanitize.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+
+        <!-- endbuild -->
+</body>
+</html>

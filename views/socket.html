@@ -1,0 +1,15 @@
+
+<div class="controls">
+  <input type="text" ng-model="model.text">
+  <button ng-click="publish(model.text)">Publish</button>
+  <button ng-click="request(model.text)">Request</button>
+</div>
+
+<div class="messages">
+  <h2>Messages</h2>
+  <ul>
+    <li ng-repeat="message in messages">
+      {{message.msg}}
+    </li>
+  </ul>  
+</div>

@@ -1,0 +1,33 @@
+
+<textarea ng-model="text"></textarea>
+<input type="number" ng-model="config.max" />
+
+<table class="justify">
+  <thead>
+    <th>#</th>
+    <th>Badness</th>
+    <th><b ng-repeat="x in makeArray(config.max)">{{$index + 1}}</b></th>
+  </thead>
+  <tr ng-repeat="line in lines">
+    <td>
+      {{$index + 1}}.
+    </td>
+    <td>
+      {{badness(line)}}
+    </td>
+    <td>
+      <b ng-repeat="letter in line | split | nosp">{{letter}}</b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      
+    </td>
+    <td>
+      Antwort
+    </td>
+    <td>
+      <b ng-repeat="letter in result | stringify">{{letter}}</b>
+    </td>
+  </tr>
+</table>

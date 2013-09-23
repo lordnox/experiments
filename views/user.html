@@ -1,0 +1,25 @@
+
+<table class="justify">
+  <thead>
+    <th>#</th>
+    <th>Username</th>
+  </thead>
+  <tr ng-repeat="user in users">
+    <td>
+      {{$index + 1}}.
+    </td>
+    <td>
+      {{user.login}}
+    </td>
+  </tr>
+  <tr>
+    <form ng-submit="createUser(temp)">
+      <td colspan="2">
+        <input type="submit"/>
+      </td>
+      <td>
+        <input type="text" ng-model="temp.login"/>
+      </td>
+    </form>
+  </tr>
+</table>

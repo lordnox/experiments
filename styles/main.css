@@ -23,3 +23,70 @@ body {
 .justify tr:last-child {
     text-align: left;
 }
+
+
+.swiper-experiment {
+    width: 100%;
+    height: 500px !important;
+    border: 1px solid red;
+}
+
+.swiper-experiment .swiper-slide {
+    position: relative;
+}
+
+.swiper-experiment .swiper-slide img {
+}
+
+.swiper-experiment .swiper-slide .source {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: rgba(0,0,0,.5);
+    padding: 20px 30px;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+    /* Specify Swiper's Size: */
+
+    width: 100%;
+    height: 500px;
+}
+.swiper-slide {
+    /* Specify Slides's Size: */    
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+}
+.swiper-slide-active+.swiper-slide {
+    /* Specify Slides's Size: */    
+    border: 1px solid greenyellow;
+    width: 50%;
+}
+.swiper-slide-active {
+    /* Specific active slide styling: */
+    
+}
+.swiper-slide-visible {
+    /* Specific visible slide styling: */   
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+    /* Stylize pagination button: */    
+
+}
+.swiper-active-switch {
+    /* Specific active button style: */ 
+    
+}
+.swiper-visible-switch {
+    /* Specific visible button style: */    
+    
+}

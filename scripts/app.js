@@ -20,6 +20,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider) {
       templateUrl: './views/socket.html',
       controller: 'SocketController',
     })
+    .when('/slider', {
+      templateUrl: './views/slider.html',
+      controller: 'SliderController'
+    })
     .otherwise({
       redirectTo: '/'
     });  

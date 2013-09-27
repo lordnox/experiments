@@ -5,6 +5,10 @@ var app = angular.module('Experimental');
 app.controller('SocketController', ['$scope', 'WebSocket', function ($scope, WebSocket) {
   console.log(WebSocket);
 
+  var uuid = function() {
+    return Math.random();
+  };
+
   WebSocket.subscribe($scope, ['chat', 'useless']);
   WebSocket.unsubscribe($scope, 'useless');
 
@@ -26,16 +30,29 @@ app.controller('SocketController', ['$scope', 'WebSocket', function ($scope, Web
     $scope.$apply();
   });
 
+  var requests = {};
+  var message = function(text, uuid) {
+    var time = '';
+    if(uuid && uuid in requests) {
+      var end = new Date;
+      var start = requests[uuid];
+      time = end - start;
+    }
+    $scope.messages.push({
+      msg: time + text
+    });
+  }
+
   $scope.$on('socket:response', function(event, data) {
     console.log("Data via socket:response received", data);
     data.msg = "socket:response - " + data.msg 
-    $scope.messages.push(data);
+    message(data.msg, data.uuid);
   });
 
   $scope.$on('socket:publish', function(event, data) {
     console.log("Data via socket:publish received", data);
     data.msg = "socket:publish - " + data.msg 
-    $scope.messages.push(data);
+    message(data.msg, data.uuid);
   })
 
   $scope.messages = [
@@ -43,14 +60,20 @@ app.controller('SocketController', ['$scope', 'WebSocket', function ($scope, Web
   ];
 
   $scope.publish = function(text) {
+    var id = uuid();
+    requests[id] = new Date;
     WebSocket.publish('chat', {
-      msg: text
+      msg: text,
+      uuid: id
     });
   };
   $scope.request = function(text) {
+    var id = uuid();
+    requests[id] = new Date;
     // using only the $scope method, callback would also work here
     WebSocket.request({
-      msg: text
+      msg: text,
+      uuid: id
     }, $scope);
   };
 }]);

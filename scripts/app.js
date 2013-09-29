@@ -24,6 +24,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider) {
       templateUrl: './views/slider.html',
       controller: 'SliderController'
     })
+    .when('/canvas', {
+      templateUrl: './views/canvas.html',
+      controller: 'CanvasController'
+    })
     .otherwise({
       redirectTo: '/'
     });  

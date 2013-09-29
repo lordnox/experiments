@@ -1,59 +1,114 @@
 
-<ul>
-  <li><button class="btn btn-primary" ng-click="prev()">&lt;-</button></li>
-  <li><button class="btn btn-primary" ng-click="next()">-&gt;</button></li>
-</ul>
-
-<div class="swiper-experiment">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-        <!--First Slide-->
-        <div class="swiper-slide"> 
-          <!-- Any HTML content of the first slide goes here -->
-          <img src="/styles/images/Trail_18.jpg"></img>
-          <div class="source"><a href="http://silvatrez.deviantart.com/art/Trail-18-7096535">silvatrez</a></div>
-        </div>
-        
-        <!--Second Slide-->
-        <div class="swiper-slide">
-          <!-- Any HTML content of the second slide goes here -->
-          <img src="/styles/images/Earth_-_Scientific_Ed.jpg"></img>
-          <div class="source"><a href="http://hameed.deviantart.com/art/Earth-Scientific-Ed-1217793">Hameed</a></div>
-        </div>
-        
-        <!--Third Slide-->
-        <div class="swiper-slide"> 
-          <!-- Any HTML content of the third slide goes here -->
-          <img src="/styles/images/Sub_Merge_Mode_01.jpg"></img>
-          <div class="source"><a href="http://silvatrez.deviantart.com/art/Sub-Merge-Mode-01-6533688">silvatrez</a></div>
-        </div>
+<div class="pane">
+  <h3>Carousel based on <a href="http://www.bustle.com/">Bustle.com</a></h3>
+  <p>
+    Converted from ember.js to a partial angular.js version. Angular is only used to do
+    the set the variables in the article-block class [`on-deck`, `in-the-hole`, `last-up`, `at-bat`].
+    Because this is not using an angular directive we need to tell angular the size and position of the first element.
+  </p><p>
+    `ng-init=""` will do this. Additionaly every slide needs a reference to the slide number so that angular can
+    access it.
+  </p><p>
+    Additionaly the is a `slider.direction` property that will define the direction the slides should fade. It will
+    be set by the next/prev-buttons.
+  </p>
+  For debugging you can turn of the hidden-property on the carousel:
+    <div class="check-slider">  
+      <input type="checkbox" ng-model="slider.hidden" id="slider-hidden"/>
+      <label for="slider-hidden"></label>
     </div>
-  </div>
+
 </div>
 
-<div class="swiper-3d">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-        <!--First Slide-->
-        <div class="swiper-slide"> 
-          <!-- Any HTML content of the first slide goes here -->
-          <img src="/styles/images/Trail_18.jpg"></img>
-          <div class="source"><a href="http://silvatrez.deviantart.com/art/Trail-18-7096535">silvatrez</a></div>
+<div class="row-fluid my-carousel" ng-init="slider.elements = 5; slider.position = 0" ng-class="{showAll: slider.hidden}">
+  <div class="content-container my-carousel-content my-carousel-transition {{slider.direction}}">
+
+    <div class="article-block my-carousel-item article-block-overlay {{slider.positionClass(0)}}">
+      <a class="article-block-link" href="#article">
+        <div class="article-block-image" style="background: red;">
+          <div class="image-view"><div class="image-bg-content" style="background-image:url('');">background-image</div></div>
+        </div>        
+      </a>          
+      <div class="article-block-details">
+        <a class="article-block-title-link" href="#title"><h3 class="article-block-title">0. LONGER TITLE TEXT</h3></a>
+        <div class="article-block-subdetails">
+          <a class="article-block-author" href="#author">0. AUTHOR</a>          
+          <span class="article-block-subheading">0. SUBHEADING</span>
         </div>
-        
-        <!--Second Slide-->
-        <div class="swiper-slide">
-          <!-- Any HTML content of the second slide goes here -->
-          <img src="/styles/images/Earth_-_Scientific_Ed.jpg"></img>
-          <div class="source"><a href="http://hameed.deviantart.com/art/Earth-Scientific-Ed-1217793">Hameed</a></div>
+      </div>
+    </div>
+
+    <div class="article-block my-carousel-item article-block-overlay {{slider.positionClass(1)}}">
+      <a class="article-block-link" href="#article">
+        <div class="article-block-image" style="background: greenyellow;">
+          <div class="image-view"><div class="image-bg-content" style="background-image:url('');">background-image</div></div>
+        </div>        
+      </a>          
+      <div class="article-block-details">
+        <a class="article-block-title-link" href="#title"><h3 class="article-block-title">1. LONGER TITLE TEXT</h3></a>
+        <div class="article-block-subdetails">
+          <a class="article-block-author" href="#author">1. AUTHOR</a>          
+          <span class="article-block-subheading">1. SUBHEADING</span>
         </div>
-        
-        <!--Third Slide-->
-        <div class="swiper-slide"> 
-          <!-- Any HTML content of the third slide goes here -->
-          <img src="/styles/images/Sub_Merge_Mode_01.jpg"></img>
-          <div class="source"><a href="http://silvatrez.deviantart.com/art/Sub-Merge-Mode-01-6533688">silvatrez</a></div>
+      </div>
+    </div>
+
+    <div class="article-block my-carousel-item article-block-overlay {{slider.positionClass(2)}}">
+      <a class="article-block-link" href="#article">
+        <div class="article-block-image" style="background: blue;">
+          <div class="image-view"><div class="image-bg-content" style="background-image:url('');">background-image</div></div>
+        </div>        
+      </a>          
+      <div class="article-block-details">
+        <a class="article-block-title-link" href="#title"><h3 class="article-block-title">2. LONGER TITLE TEXT</h3></a>
+        <div class="article-block-subdetails">
+          <a class="article-block-author" href="#author">2. AUTHOR</a>          
+          <span class="article-block-subheading">2. SUBHEADING</span>
         </div>
+      </div>
+    </div>
+
+    <div class="article-block my-carousel-item article-block-overlay {{slider.positionClass(3)}}">
+      <a class="article-block-link" href="#article">
+        <div class="article-block-image" style="background: green;">
+          <div class="image-view"><div class="image-bg-content" style="background-image:url('');">background-image</div></div>
+        </div>        
+      </a>          
+      <div class="article-block-details">
+        <a class="article-block-title-link" href="#title"><h3 class="article-block-title">3. LONGER TITLE TEXT</h3></a>
+        <div class="article-block-subdetails">
+          <a class="article-block-author" href="#author">3. AUTHOR</a>          
+          <span class="article-block-subheading">3. SUBHEADING</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-block my-carousel-item article-block-overlay {{slider.positionClass(4)}}">
+      <a class="article-block-link" href="#article">
+        <div class="article-block-image" style="background: magenta;">
+          <div class="image-view"><div class="image-bg-content" style="background-image:url('');">background-image</div></div>
+        </div>        
+      </a>          
+      <div class="article-block-details">
+        <a class="article-block-title-link" href="#title"><h3 class="article-block-title">4. LONGER TITLE TEXT</h3></a>
+        <div class="article-block-subdetails">
+          <a class="article-block-author" href="#author">4. AUTHOR</a>          
+          <span class="article-block-subheading">4. SUBHEADING</span>
+        </div>
+      </div>
     </div>
   </div>
+
+  <a class="my-carousel-control my-carousel-control-prev" data-="30" ng-click="prev()">
+    <span class="my-carousel-button my-carousel-button-prev"><i class="icon-arrow-left"></i></span>
+  </a>
+  <a class="my-carousel-control my-carousel-control-next" data-="31" ng-click="next()">
+    <span class="my-carousel-button my-carousel-button-next"><i class="icon-arrow-right"></i></span>
+  </a>
 </div>
+
+<pre>
+  {{slider|json}}
+</pre>
+
+

@@ -1,0 +1,37 @@
+
+<canvas id="myCanvas" style="border: 1px solid black;" width="{{canvas.width}}px" height="{{canvas.height}}px">
+</canvas>
+
+<ul>
+  <li><h5>Symbol</h5></li>
+  <li>Scale: <input type="number" ng-model="parameter.scale"/></li>
+  <li ng-repeat="point in parameter.symbol.points">
+    {{$index+1}}. <input type="number" ng-model="point[0]"/><input type="number" ng-model="point[1]"/>
+  </li>
+
+  <li><h5>Demo</h5></li>
+  <li>posx: <input type="number" ng-model="parameter.demo.posx"/></li>
+  <li>posy: <input type="number" ng-model="parameter.demo.posy"/></li>
+  <li>r: <input type="number" ng-model="parameter.demo.r"/></li>
+  <li>f: <input type="number" ng-model="parameter.demo.f"/></li>
+  <li>top: <input type="number" ng-model="parameter.demo.top"/></li>
+  <li>theta: <input type="number" ng-model="parameter.demo.theta"/></li>
+  <li>alpha: <input type="number" ng-model="parameter.demo.alpha"/></li>
+  
+  <li><h5>Colors</h5></li>
+  <li>Layout: <input type="color" ng-model="parameter.colors.layout"/></li>
+  <li>Stroke: <input type="color" ng-model="parameter.colors.stroke"/></li>
+
+  <li></h5>Base Canvas</h5></li>
+  <li>Width: <input type="number" ng-model="canvas.width"/></li>
+  <li>Height: <input type="number" ng-model="canvas.height"/></li>
+  <li>Left: <input type="number" ng-model="parameter.base.x"/></li>
+  <li>Top: <input type="number" ng-model="parameter.base.y"/></li>
+  <li>Scale: <input type="number" ng-model="parameter.scale"/></li>
+
+
+
+
+</ul>
+
+<pre>{{parameter | json}}</pre>

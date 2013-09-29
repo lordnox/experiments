@@ -25,68 +25,723 @@ body {
 }
 
 
-.swiper-experiment {
-    width: 100%;
-    height: 500px !important;
-    border: 1px solid red;
-}
+/* slideing checkbox */
 
-.swiper-experiment .swiper-slide {
+/* SLIDE THREE */
+.check-slider {
+    display: inline-block;
+    width: 80px;
+    height: 26px;
+    background: #333;
+    margin: 20px auto;
+
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
     position: relative;
+
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
 }
 
-.swiper-experiment .swiper-slide img {
+.check-slider input[type=checkbox] {
+    visibility: hidden;
 }
 
-.swiper-experiment .swiper-slide .source {
+.check-slider:after {
+    content: 'OFF';
+    font: 12px/26px Arial, sans-serif;
+    color: #000;
     position: absolute;
-    top: 100px;
-    left: 100px;
-    background-color: rgba(0,0,0,.5);
-    padding: 20px 30px;
+    right: 10px;
+    z-index: 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255,255,255,.15);
 }
 
-/* ===============================================================
-Your custom styles, here you need to specify container's and slide's
-sizes, pagination, etc.
-================================================================*/
-.swiper-container {
-    /* Specify Swiper's Size: */
-
-    width: 100%;
-    height: 500px;
+.check-slider:before {
+    content: 'ON';
+    font: 12px/26px Arial, sans-serif;
+    color: #00bf00;
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+    font-weight: bold;
 }
-.swiper-slide {
-    /* Specify Slides's Size: */    
+
+.check-slider label {
+    display: block;
+    width: 34px;
+    height: 20px;
+
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    transition: all .4s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    background: #fcfff4;
+
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.check-slider input[type=checkbox]:checked + label {
+    left: 43px;
+}
+/* sliding-checkbox */
+
+
+.my-carousel.showAll {
+    overflow: visible;
+}
+
+
+.my-carousel {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    -webkit-box-shadow: inset 0 -6px 6px -6px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 -6px 6px -6px rgba(0,0,0,0.2);
+    box-shadow: inset 0 -6px 6px -6px rgba(0,0,0,0.2)
+}
+
+.my-carousel-content {
+    height: 444px;
+    position: relative
+}
+
+.my-carousel-item {
+    width: 30.6%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    border: 1px solid black;
+    -webkit-transition-property: width,left,opacity;
+    -moz-transition-property: width,left,opacity;
+    -o-transition-property: width,left,opacity;
+    -ms-transition-property: width,left,opacity;
+    transition-property: width,left,opacity;
+    -webkit-transition-duration: .8s;
+    -moz-transition-duration: .8s;
+    -o-transition-duration: .8s;
+    transition-duration: .8s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
+}
+
+.at-bat {
+    width: 63.6%;
+    left: 1.6%;
+    z-index: 1
+}
+
+.on-deck {
+    left: 67.8%
+}
+
+.in-the-hole {
+    left: 100.85%;
+    -webkit-opacity: .4;
+    -moz-opacity: .4;
+    opacity: .4;
+}
+
+.last-up {
+    left: -31.4%;
+    -webkit-opacity: .4;
+    -moz-opacity: .4;
+    opacity: .4;
+}
+
+.my-carousel-transition .in-the-hole {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+    -webkit-animation-name: animationCarouselWrapBegin,animationCarouselWrapEnd;
+    -moz-animation-name: animationCarouselWrapBegin,animationCarouselWrapEnd;
+    -o-animation-name: animationCarouselWrapBegin,animationCarouselWrapEnd;
+    -ms-animation-name: animationCarouselWrapBegin,animationCarouselWrapEnd;
+    animation-name: animationCarouselWrapBegin,animationCarouselWrapEnd;
+    -webkit-animation-duration: .4s;
+    -moz-animation-duration: .4s;
+    -o-animation-duration: .4s;
+    -ms-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-delay: 0s,0.4s;
+    -moz-animation-delay: 0s,0.4s;
+    -o-animation-delay: 0s,0.4s;
+    -ms-animation-delay: 0s,0.4s;
+    animation-delay: 0s,0.4s
+}
+
+.my-carousel-reverse .in-the-hole {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -o-animation: none;
+    -ms-animation: none;
+    animation: none;
+    -webkit-transition-property: width,left,opacity;
+    -moz-transition-property: width,left,opacity;
+    -o-transition-property: width,left,opacity;
+    -ms-transition-property: width,left,opacity;
+    transition-property: width,left,opacity;
+    -webkit-transition-duration: .8s;
+    -moz-transition-duration: .8s;
+    -o-transition-duration: .8s;
+    transition-duration: .8s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease
+}
+
+.my-carousel-reverse .last-up {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+    -webkit-animation-name: animationCarouselWrapReverseBegin,animationCarouselWrapReverseEnd;
+    -moz-animation-name: animationCarouselWrapReverseBegin,animationCarouselWrapReverseEnd;
+    -o-animation-name: animationCarouselWrapReverseBegin,animationCarouselWrapReverseEnd;
+    -ms-animation-name: animationCarouselWrapReverseBegin,animationCarouselWrapReverseEnd;
+    animation-name: animationCarouselWrapReverseBegin,animationCarouselWrapReverseEnd;
+    -webkit-animation-duration: .4s;
+    -moz-animation-duration: .4s;
+    -o-animation-duration: .4s;
+    -ms-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-delay: 0s,0.4s;
+    -moz-animation-delay: 0s,0.4s;
+    -o-animation-delay: 0s,0.4s;
+    -ms-animation-delay: 0s,0.4s;
+    animation-delay: 0s,0.4s
+}
+
+.my-carousel-item .article-block-link {
+    height: 100%
+}
+
+.my-carousel-item .article-block-image {
+    padding-top: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+    position: absolute;  /* @CHANGE */
+    z-index: 0; /* @CHANGE */
 }
-.swiper-slide-active+.swiper-slide {
-    /* Specify Slides's Size: */    
-    border: 1px solid greenyellow;
-    width: 50%;
-}
-.swiper-slide-active {
-    /* Specific active slide styling: */
-    
-}
-.swiper-slide-visible {
-    /* Specific visible slide styling: */   
 
-}
-/* ===============================================================
-Pagination Styles
-================================================================*/
-.swiper-pagination-switch {
-    /* Stylize pagination button: */    
+.my-carousel-item .article-block-details {
+    position: relative; /* @CHANGE */
 
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+    bottom: -10px;
+    -webkit-transition-property: opacity,bottom,color;
+    -moz-transition-property: opacity,bottom,color;
+    -o-transition-property: opacity,bottom,color;
+    -ms-transition-property: opacity,bottom,color;
+    transition-property: opacity,bottom,color;
+    -webkit-transition-duration: .264s;
+    -moz-transition-duration: .264s;
+    -o-transition-duration: .264s;
+    transition-duration: .264s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-delay: .6400000000000001s,0.6400000000000001s,0;
+    -moz-transition-delay: .6400000000000001s,0.6400000000000001s,0;
+    -o-transition-delay: .6400000000000001s,0.6400000000000001s,0;
+    transition-delay: .6400000000000001s,0.6400000000000001s,0
 }
-.swiper-active-switch {
-    /* Specific active button style: */ 
-    
+
+.at-bat .article-block-details,.on-deck .article-block-details {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    bottom: 0
 }
-.swiper-visible-switch {
-    /* Specific visible button style: */    
-    
+
+.last-up .article-block-details,.my-carousel-reverse .on-deck .article-block-details,.my-carousel-reverse .in-the-hole .article-block-details {
+    -webkit-transition-delay: 0;
+    -moz-transition-delay: 0;
+    -o-transition-delay: 0;
+    transition-delay: 0
+}
+
+.my-carousel-item .article-block-title {
+    max-width: 340px
+}
+
+.my-carousel-item .article-block-author {
+    max-width: 193px
+}
+
+.my-carousel-control {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    width: 6%;
+    height: 50%;
+    top: 25%;
+    min-width: 55px;
+    min-height: 60px;
+    -webkit-transition: -webkit-transform .2s ease;
+    -moz-transition: -moz-transform .2s ease;
+    -o-transition: -o-transform .2s ease;
+    -ms-transition: -ms-transform .2s ease;
+    transition: transform .2s ease
+}
+
+.my-carousel-button {
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 60px;
+    margin-top: -30px;
+    text-align: center;
+    background-color: #222;
+    background-color: rgba(0,0,0,0.35);
+    -webkit-transition: background-color .15s linear;
+    -moz-transition: background-color .15s linear;
+    -o-transition: background-color .15s linear;
+    -ms-transition: background-color .15s linear;
+    transition: background-color .15s linear
+}
+
+.my-carousel-control-prev,.my-carousel-button-prev {
+    left: 0
+}
+
+.my-carousel-control-next,.my-carousel-button-next {
+    right: 0
+}
+
+.my-carousel-button i {
+    line-height: 60px;
+    font-size: 2.5em;
+    color: #FFF;
+    -webkit-transition: -webkit-transform .2s ease;
+    -moz-transition: -moz-transform .2s ease;
+    -o-transition: -o-transform .2s ease;
+    -ms-transition: -ms-transform .2s ease;
+    transition: transform .2s ease
+}
+
+.my-carousel-button-prev i {
+    margin-left: -5px
+}
+
+.my-carousel-button-next i {
+    margin-left: 5px
+}
+
+.hoverable .my-carousel-control:hover .my-carousel-button {
+    background-color: rgba(0,0,0,0.7)
+}
+
+.hoverable .my-carousel-control-prev {
+    -webkit-transform: translateX(-48px);
+    -moz-transform: translateX(-48px);
+    -o-transform: translateX(-48px);
+    -ms-transform: translateX(-48px);
+    transform: translateX(-48px)
+}
+
+.hoverable .my-carousel:hover .my-carousel-control-prev {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+
+.hoverable .my-carousel-control-next {
+    -webkit-transform: translateX(48px);
+    -moz-transform: translateX(48px);
+    -o-transform: translateX(48px);
+    -ms-transform: translateX(48px);
+    transform: translateX(48px)
+}
+
+.hoverable .my-carousel:hover .my-carousel-control-next {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+
+.hoverable .my-carousel-control-prev:hover i {
+    -webkit-transform: translateX(-4px);
+    -moz-transform: translateX(-4px);
+    -o-transform: translateX(-4px);
+    -ms-transform: translateX(-4px);
+    transform: translateX(-4px)
+}
+
+.hoverable .my-carousel-control-next:hover i {
+    -webkit-transform: translateX(4px);
+    -moz-transform: translateX(4px);
+    -o-transform: translateX(4px);
+    -ms-transform: translateX(4px);
+    transform: translateX(4px)
+}
+
+@media screen and (min-width:2000px) {
+    .my-carousel-control {
+        top: 0;
+        height: 100%
+    }
+
+    .my-carousel-content:before,.my-carousel-content:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 400px
+    }
+
+    .my-carousel-content:before {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQtdWNnZy1nZW5lcmF0ZWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiKDI1NSwyNTUsMjU1KSIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9InJnYigyNTUsMjU1LDI1NSkiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiKDI1NSwyNTUsMjU1KSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPjwvc3ZnPg==);
+        background-image: -moz-linear-gradient(left,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        background-image: -webkit-linear-gradient(left,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        background-image: -o-linear-gradient(left,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        background-image: linear-gradient(to right,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        left: -57%
+    }
+
+    .my-carousel-content:after {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQtdWNnZy1nZW5lcmF0ZWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiKDI1NSwyNTUsMjU1KSIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9InJnYigyNTUsMjU1LDI1NSkiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiKDI1NSwyNTUsMjU1KSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPjwvc3ZnPg==);
+        background-image: -moz-linear-gradient(right,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        background-image: -webkit-linear-gradient(right,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        background-image: -o-linear-gradient(right,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        background-image: linear-gradient(to left,rgba(255,255,255,1) 0,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%);
+        right: -57%
+    }
+}
+
+@media screen and (max-width:979px) {
+    .my-carousel {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border-bottom: 0
+    }
+
+    .at-bat {
+        left: 0;
+        width: 100%
+    }
+
+    .on-deck {
+        left: 100%;
+        width: 100%
+    }
+
+    .in-the-hole {
+        display: none
+    }
+
+    .last-up {
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
+        opacity: 1;
+        left: -100%;
+        width: 100%
+    }
+
+    .my-carousel-transition .in-the-hole,.my-carousel-reverse .last-up {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        -ms-animation: none;
+        animation: none
+    }
+
+    .my-carousel-item .article-block-details {
+        bottom: 0;
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
+        opacity: 1;
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+        -ms-transition: none;
+        transition: none
+    }
+
+    .my-carousel-item .article-block-title {
+        max-width: none;
+        min-height: 0
+    }
+
+    .my-carousel-control {
+        top: 20%
+    }
+}
+
+@media screen and (max-width:480px) {
+    .my-carousel-content {
+        height: 320px
+    }
+
+    .my-carousel-control {
+        height: 30%;
+        top: 30%
+    }
+
+    .my-carousel-item .article-block-details {
+        position: inherit;
+        background: rgba(0,0,0,0.7)
+    }
+
+    .my-carousel-button {
+        width: 44px;
+        height: 52px;
+        margin-top: -26px
+    }
+
+    .my-carousel-button i {
+        line-height: 52px
+    }
+}
+
+@-webkit-keyframes animationCarouselWrapBegin {
+    from {
+        left: -31.4%
+    }
+
+    to {
+        left: -56%
+    }
+}
+
+@-webkit-keyframes animationCarouselWrapEnd {
+    from {
+        left: 110%
+    }
+
+    to {
+        left: 100.85%
+    }
+}
+
+@-webkit-keyframes animationCarouselWrapReverseBegin {
+    from {
+        left: 100.85%
+    }
+
+    to {
+        left: 125.45%
+    }
+}
+
+@-webkit-keyframes animationCarouselWrapReverseEnd {
+    from {
+        left: -40.55%
+    }
+
+    to {
+        left: -31.4%
+    }
+}
+
+@-moz-keyframes animationCarouselWrapBegin {
+    from {
+        left: -31.4%
+    }
+
+    to {
+        left: -56%
+    }
+}
+
+@-moz-keyframes animationCarouselWrapEnd {
+    from {
+        left: 110%
+    }
+
+    to {
+        left: 100.85%
+    }
+}
+
+@-moz-keyframes animationCarouselWrapReverseBegin {
+    from {
+        left: 100.85%
+    }
+
+    to {
+        left: 125.45%
+    }
+}
+
+@-moz-keyframes animationCarouselWrapReverseEnd {
+    from {
+        left: -40.55%
+    }
+
+    to {
+        left: -31.4%
+    }
+}
+
+@-ms-keyframes animationCarouselWrapBegin {
+    from {
+        left: -31.4%
+    }
+
+    to {
+        left: -56%
+    }
+}
+
+@-ms-keyframes animationCarouselWrapEnd {
+    from {
+        left: 110%
+    }
+
+    to {
+        left: 100.85%
+    }
+}
+
+@-ms-keyframes animationCarouselWrapReverseBegin {
+    from {
+        left: 100.85%
+    }
+
+    to {
+        left: 125.45%
+    }
+}
+
+@-ms-keyframes animationCarouselWrapReverseEnd {
+    from {
+        left: -40.55%
+    }
+
+    to {
+        left: -31.4%
+    }
+}
+
+@-o-keyframes animationCarouselWrapBegin {
+    from {
+        left: -31.4%
+    }
+
+    to {
+        left: -56%
+    }
+}
+
+@-o-keyframes animationCarouselWrapEnd {
+    from {
+        left: 110%
+    }
+
+    to {
+        left: 100.85%
+    }
+}
+
+@-o-keyframes animationCarouselWrapReverseBegin {
+    from {
+        left: 100.85%
+    }
+
+    to {
+        left: 125.45%
+    }
+}
+
+@-o-keyframes animationCarouselWrapReverseEnd {
+    from {
+        left: -40.55%
+    }
+
+    to {
+        left: -31.4%
+    }
+}
+
+@keyframes animationCarouselWrapBegin {
+    from {
+        left: -31.4%
+    }
+
+    to {
+        left: -56%
+    }
+}
+
+@keyframes animationCarouselWrapEnd {
+    from {
+        left: 110%
+    }
+
+    to {
+        left: 100.85%
+    }
+}
+
+@keyframes animationCarouselWrapReverseBegin {
+    from {
+        left: 100.85%
+    }
+
+    to {
+        left: 125.45%
+    }
+}
+
+@keyframes animationCarouselWrapReverseEnd {
+    from {
+        left: -40.55%
+    }
+
+    to {
+        left: -31.4%
+    }
 }
